@@ -17,12 +17,12 @@ public class SmartLight {
     }
 
     public void turnUp(){
-
-        if (lightPercent+20 >= 100){
-            lightPercent = 100;
+        if(lightPercent>=100)
+        {
+            this.lightPercent=100;
         }
-        else{
-            lightPercent += 20;
+        else {
+            this.lightPercent += 20;
         }
 
     }
@@ -30,17 +30,47 @@ public class SmartLight {
     public void turnDown(){
         if(lightPercent-20<=0)
         {
-            lightPercent=0;
+            this.lightPercent=0;
         }
         else
         {
-            lightPercent-=20;
+            this.lightPercent-=20;
         }
     }
 
     public String toString(){
-        return "";
+        return "LightPercent: \t" + this.lightPercent + "\nColor: \t\t\t" + this.color;
     }
 
 
+    public short getLightPercent() {
+        return lightPercent;
+    }
+
+    public void setLightPercent(short lightPercent) {
+        if (lightPercent >= 100){
+            this.lightPercent = 100;
+        }
+        else if (lightPercent <= 0){
+            this.lightPercent = 0;
+        }
+        else{
+            this.lightPercent = lightPercent;
+        }
+
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        if (color == Color.BLACK){
+            this.color = Color.DARKGRAY;
+        }
+        else{
+            this.color = color;
+        }
+
+    }
 }
